@@ -187,3 +187,78 @@ footer {
         font-size: 12px;
     }
 }
+/* Estilos base */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+}
+
+header img {
+    height: 50px;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+/* Ocultar el checkbox */
+#menu-toggle {
+    display: none;
+}
+
+/* Estilos para el icono del menú */
+.menu-icon {
+    display: none;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+/* Estilos responsive */
+@media (max-width: 768px) {
+    .menu-icon {
+        display: block;
+    }
+
+    nav ul {
+        display: none;
+        flex-direction: column;
+        background-color: #333;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 200px;
+        padding: 10px;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    nav ul li a {
+        padding: 10px 0;
+        display: block;
+        text-align: center;
+    }
+
+    /* Mostrar el menú cuando se haga clic en el icono */
+    #menu-toggle:checked + .menu-icon + nav ul {
+        display: flex;
+    }
+}
