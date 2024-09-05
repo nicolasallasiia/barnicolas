@@ -227,6 +227,10 @@ nav ul li a {
 
 /* Estilos responsive */
 @media (max-width: 768px) {
+    header {
+        flex-direction: row-reverse; /* Cambia la disposición en modo responsive */
+    }
+
     .menu-icon {
         display: block;
     }
@@ -237,7 +241,7 @@ nav ul li a {
         background-color: #333;
         position: absolute;
         top: 60px;
-        right: 0;
+        left: 0px; /* Posiciona el menú a la izquierda */
         width: 200px;
         padding: 10px;
     }
