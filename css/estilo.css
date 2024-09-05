@@ -33,11 +33,6 @@ nav ul li a {
     text-decoration: none;
 }
 
-.hero {
-    width: 100%;
-    height: calc(100vh - 70px);
-    background: url('../Assets/portada2.jpg') no-repeat center center/cover;
-}
 
 .container {
     padding: 50px;
