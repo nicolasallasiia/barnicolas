@@ -3,6 +3,7 @@ body {
     font-family: Arial, sans-serif;
 }
 
+/* Estilos base */
 header {
     display: flex;
     align-items: center;
@@ -21,7 +22,6 @@ nav ul {
     margin: 0;
     padding: 0;
     display: flex;
-    flex-wrap: wrap;
 }
 
 nav ul li {
@@ -33,7 +33,74 @@ nav ul li a {
     text-decoration: none;
 }
 
+/* Ocultar el checkbox */
+#menu-toggle {
+    display: none;
+}
 
+/* Estilos para el icono del menú */
+.menu-icon {
+    display: none;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+/* Estilos responsive */
+@media (max-width: 768px) {
+    header {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .menu-icon {
+        display: block;
+        order: 1;
+    }
+
+    header img {
+        order: 2;
+        margin-left: auto;
+    }
+
+    nav ul {
+        display: none;
+        flex-direction: column;
+        background-color: #333;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        padding: 10px;
+        z-index: 1000;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    nav ul li a {
+        padding: 10px 0;
+        display: block;
+        text-align: center;
+    }
+
+    #menu-toggle:checked + .menu-icon + nav ul {
+        display: flex;
+    }
+}
+
+@media (min-width: 769px) {
+    nav ul {
+        display: flex;
+        position: static;
+        background-color: transparent;
+    }
+
+    .menu-icon {
+        display: none;
+    }
+}
+/* img menu */
 .container {
     padding: 50px;
     display: flex;
@@ -45,6 +112,7 @@ nav ul li a {
     width: 30%;
     margin-bottom: 20px;
     text-align: center;
+    position: relative;
 }
 
 .item img {
@@ -52,11 +120,27 @@ nav ul li a {
     height: auto;
 }
 
-.item p {
-    margin: 10px 0 0 0;
+.item .content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
 }
 
-/* Responsive Design */
+.item:hover .content {
+    opacity: 1;
+}
+
 @media (max-width: 1024px) {
     .container {
         padding: 30px;
@@ -68,25 +152,6 @@ nav ul li a {
 }
 
 @media (max-width: 768px) {
-    header {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    nav ul {
-        flex-direction: column;
-        align-items: flex-start;
-        width: 100%;
-    }
-
-    nav ul li {
-        margin: 10px 0;
-    }
-
-    .hero {
-        height: 60vh;
-    }
-
     .container {
         padding: 20px;
         flex-direction: column;
@@ -103,18 +168,12 @@ nav ul li a {
         padding: 10px;
     }
 
-    .hero {
-        height: 50vh;
-    }
-
     .container {
         padding: 10px;
     }
-
-    .item p {
-        margin: 5px 0 0 0;
-    }
 }
+
+/* Footer */
 footer {
     background-color: #333;
     color: white;
@@ -161,107 +220,42 @@ footer {
     font-size: 14px;
 }
 
+/* Estilos responsive para el footer */
 @media (max-width: 768px) {
+    .footer-container {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
     .footer-section {
         width: 45%;
+        text-align: left;
     }
 }
 
 @media (max-width: 480px) {
     .footer-container {
-        flex-direction: column;
-        align-items: center;
+        flex-direction: row;
+        justify-content: space-between;
     }
 
     .footer-section {
         width: 100%;
-        text-align: center;
+        text-align: left;
+        margin-bottom: 10px;
+    }
+
+    .footer-section h4 {
+        font-size: 16px;
     }
 
     .footer-section p, .social-links li {
         font-size: 12px;
     }
 }
-/* Estilos base */
-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 20px;
-    background-color: #333;
-    color: white;
-}
 
-header img {
-    height: 50px;
-}
-
-nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-wrap: wrap;
-}
-
-nav ul li {
-    margin: 0 15px;
-}
-
-nav ul li a {
-    color: white;
-    text-decoration: none;
-}
-
-/* Ocultar el checkbox */
-#menu-toggle {
-    display: none;
-}
-
-/* Estilos para el icono del menú */
-.menu-icon {
-    display: none;
-    font-size: 30px;
-    cursor: pointer;
-}
-
-/* Estilos responsive */
-@media (max-width: 768px) {
-    header {
-        flex-direction: row-reverse; /* Cambia la disposición en modo responsive */
-    }
-
-    .menu-icon {
-        display: block;
-    }
-
-    nav ul {
-        display: none;
-        flex-direction: column;
-        background-color: #333;
-        position: absolute;
-        top: 60px;
-        left: 0px; /* Posiciona el menú a la izquierda */
-        width: 200px;
-        padding: 10px;
-    }
-
-    nav ul li {
-        margin: 10px 0;
-    }
-
-    nav ul li a {
-        padding: 10px 0;
-        display: block;
-        text-align: center;
-    }
-
-    /* Mostrar el menú cuando se haga clic en el icono */
-    #menu-toggle:checked + .menu-icon + nav ul {
-        display: flex;
-    }
-}
-/* General styles for all screens img portada */
+/* Estilos img portada */
 .htd {
     width: 100%;
     height: auto;
@@ -271,27 +265,148 @@ nav ul li a {
     object-fit: cover;
 }
 
-/* Desktop view (large screens) img portada */
 @media (min-width: 1200px) {
     .htd {
-        height: 90vh; /* Ocupa casi toda la pantalla en altura */
+        height: 90vh;
     }
 }
 
-/* Tablet view (medium screens) img portada */
-@media (min-width: 768px) and (max-width: 1199px) {
+@media (max-width: 1199px) {
     .htd {
         height: auto;
-        width: 100%;
-        max-width: 80vw; /* Reduce el tamaño para tablets */
+        max-width: 80vw;
     }
 }
 
-/* Mobile view (small screens) img portada */
 @media (max-width: 767px) {
     .htd {
         height: auto;
+        max-width: 100vw;
+    }
+}
+
+/* Galería */
+.gallery-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
+    padding: 20px;
+}
+
+.gallery-item {
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.gallery-item:nth-child(1),
+.gallery-item:nth-child(3),
+.gallery-item:nth-child(6),
+.gallery-item:nth-child(10),
+.gallery-item:nth-child(11),
+.gallery-item:nth-child(12) {
+    grid-column: span 2;
+}
+
+.gallery-item:nth-child(2),
+.gallery-item:nth-child(6) {
+    grid-row: span 2;
+}
+
+.gallery-item:hover img,
+.gallery-item:focus img {
+    transform: scale(1.1);
+}
+
+@media (hover: none) {
+    .gallery-item img:active {
+        transform: scale(1.1);
+    }
+}
+
+@media (max-width: 768px) {
+    .gallery-container {
+        grid-template-columns: 1fr;
+        gap: 5px;
+    }
+
+    .gallery-item {
+        grid-column: span 1;
+        grid-row: span 1;
+    }
+}
+
+/* Galería personalizada cervezas */
+.custom-gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    padding: 20px;
+}
+
+.custom-gallery-item {
+    position: relative;
+    overflow: hidden;
+}
+
+.custom-gallery-item img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.custom-gallery-item:hover img {
+    transform: scale(1.05); /* Agranda la imagen al pasar el mouse */
+}
+
+.custom-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    opacity: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    transition: opacity 0.3s ease;
+    padding: 20px;
+    text-align: left;
+}
+
+.custom-gallery-item:hover .custom-overlay {
+    opacity: 1; /* Muestra el texto al hacer hover */
+}
+
+.custom-overlay h2 {
+    margin: 0;
+    font-size: 24px;
+}
+
+.custom-overlay p {
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+/* Responsive para móviles - Imágenes una debajo de otra */
+@media (max-width: 768px) {
+    .custom-gallery {
+        grid-template-columns: 1fr; /* Una columna, cada imagen debajo de otra */
+    }
+
+    .custom-gallery-item img {
         width: 100%;
-        max-width: 100vw; /* Ocupa todo el ancho de la pantalla */
     }
 }
