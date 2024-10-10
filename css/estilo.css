@@ -81,7 +81,7 @@ nav ul li a {
     nav ul li a {
         padding: 10px 0;
         display: block;
-        text-align: center;
+        text-align: left;
     }
 
     #menu-toggle:checked + .menu-icon + nav ul {

@@ -66,7 +66,7 @@ header .menu-icon {
   header nav ul li a {
     padding: 10px 0;
     display: block;
-    text-align: center;
+    text-align: left;
   }
   header #menu-toggle:checked + .menu-icon + nav ul {
     display: flex;
