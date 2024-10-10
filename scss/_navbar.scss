@@ -1,12 +1,12 @@
 @import 'variables';
+@import 'mixins';
 
 header {
-  display: flex;
-  align-items: center;
+  @include flex-center;
   justify-content: space-between;
-  padding: $padding-small;
-  background-color: $primary-bg-color;
-  color: $primary-text-color;
+  @include padding($padding-small);
+  @include background-color($primary-bg-color);
+  @extend .text-white;
 
   img {
     height: 50px;
@@ -23,19 +23,17 @@ header {
         margin: 0 15px;
 
         a {
-          color: $primary-text-color;
+          @extend .text-white;
           text-decoration: none;
         }
       }
     }
   }
 
-  // Ocultar el checkbox
   #menu-toggle {
     display: none;
   }
 
-  // Estilos para el icono del menú
   .menu-icon {
     display: none;
     font-size: 30px;

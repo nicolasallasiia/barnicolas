@@ -1,6 +1,11 @@
 @import 'variables';
+@import 'mixins';
 
 body {
   margin: 0;
   font-family: $familia-family;
+}
+
+.text-white {
+  @include text-color($primary-text-color);
 }
