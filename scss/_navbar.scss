@@ -1,0 +1,44 @@
+@import 'variables';
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: $padding-small;
+  background-color: $primary-bg-color;
+  color: $primary-text-color;
+
+  img {
+    height: 50px;
+  }
+
+  nav {
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+
+      li {
+        margin: 0 15px;
+
+        a {
+          color: $primary-text-color;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+
+  // Ocultar el checkbox
+  #menu-toggle {
+    display: none;
+  }
+
+  // Estilos para el icono del menú
+  .menu-icon {
+    display: none;
+    font-size: 30px;
+    cursor: pointer;
+  }
+}
